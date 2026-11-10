@@ -28,3 +28,7 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Project architecture
+
+- Keep the public marketing site, account flows, and signed-in product experience in distinct TanStack routes, with shared product data outside route modules; this keeps public discovery separate from account-only work while allowing reusable feature views.
