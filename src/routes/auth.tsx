@@ -58,7 +58,7 @@ function AuthPage() {
       } else if (mode === 'login') {
         const { data, error } = await supabase.auth.signInWithPassword({ email: email.trim(), password });
         if (error) throw error;
-        if (data.user) await supabase.from('profiles').upsert({ user_id: data.user.id, full_name: String(data.user.user_metadata.full_name ?? '') });
+        if (data.user) await supabase.from('profiles').upsert({ user_id: data.user.id, full_name: String(data.user.user_metadata['full_name'] ?? '') });
         toast.success('Welcome back.');
         await navigate({ to: '/dashboard' });
       } else {
